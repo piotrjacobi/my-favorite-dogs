@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link href="https://fonts.googleapis.com/css?family=Carter+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/css/main.css}" />
+    </head>
+
+    <body>
+        <h1>Some dogs</h1>
+        <img class="maindog" alt="Smiley face" height="250"  th:src="@{${dogModel.url}}"/>
+        <div class="links">
+            <a th:href="@{/reload}">Show me another dog</a><br>
+            <a th:href="@{/save}">Save this one to my favorites</a>
+        </div>
+        <hr/>
+        <h1>My favorite dogs</h1>
+        <th:block th:each="dog : ${listDogs}">
+            <img alt="Smiley face" height="250"  th:src="@{${dog.url}}"/>
+        </th:block>
+    </body>
+    <hr/>
+    <footer>
+        <p>made on Linux Mint :)</p>
+    </footer>
+</html>
